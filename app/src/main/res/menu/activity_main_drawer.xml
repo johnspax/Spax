@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/grp1" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_ic_gmap_icon"
+            android:title="@string/nav_map" />
+        <item
+            android:id="@+id/nav_movies"
+            android:icon="@drawable/ic_local_movies_black_24dp"
+            android:title="@string/nav_home" />
+        <item
+            android:id="@+id/nav_tv"
+            android:icon="@drawable/ic_ic_tv_icon"
+            android:title="@string/nav_photos" />
+        <item
+            android:id="@+id/nav_genres"
+            android:icon="@drawable/ic_ic_genre_icon"
+            android:title="@string/nav_movies" />
+
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            android:title="@string/nav_cartitems" />
+
+        <item
+            android:id="@+id/nav_my_orders"
+            android:icon="@drawable/ic_format_list_numbered_black_24dp"
+            android:title="@string/nav_orders" />
+
+        <item
+            android:id="@+id/nav_orders_history"
+            android:icon="@drawable/ic_history_black_24dp"
+            android:title="@string/nav_orders_history" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/nav_settings" />
+    </group>
+
+    <group android:id="@+id/group_settings" android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_about_us"
+                android:title="@string/nav_about_us" />
+            <item
+                android:id="@+id/nav_privacy_policy"
+                android:title="@string/privacy_policy" />
+    </group>
+
+</menu>

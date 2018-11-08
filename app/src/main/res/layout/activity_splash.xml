@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/moviedb_about" />
+
+        <TextView
+            android:id="@+id/tvSpax"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imgLogo"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_horizontal"
+            android:text="SPAX"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/spaxtagline"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgLogo"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_horizontal"
+            android:text="For the movie people"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/spaxweb"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spaxtagline"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_horizontal"
+            android:text="www.spaxsoftware.com"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+    </RelativeLayout>

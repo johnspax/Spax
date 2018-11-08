@@ -1,0 +1,186 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="movie.software.com.spax">
+
+    <compatible-screens>
+        <screen
+            android:screenDensity="ldpi"
+            android:screenSize="small"/>
+        <screen
+            android:screenDensity="mdpi"
+            android:screenSize="small"/>
+        <screen
+            android:screenDensity="hdpi"
+            android:screenSize="small"/>
+        <screen
+            android:screenDensity="213"
+            android:screenSize="small"/>
+        <screen
+            android:screenDensity="xhdpi"
+            android:screenSize="small"/>
+        <screen
+            android:screenDensity="480"
+            android:screenSize="small"/>
+        <screen
+            android:screenDensity="560"
+            android:screenSize="small"/>
+        <screen
+            android:screenDensity="640"
+            android:screenSize="small"/>
+        <screen
+            android:screenDensity="ldpi"
+            android:screenSize="normal"/>
+        <screen
+            android:screenDensity="mdpi"
+            android:screenSize="normal"/>
+        <screen
+            android:screenDensity="hdpi"
+            android:screenSize="normal"/>
+        <!--tvdpi-->
+        <screen
+            android:screenDensity="213"
+            android:screenSize="normal"/>
+        <screen
+            android:screenDensity="xhdpi"
+            android:screenSize="normal"/>
+        <!--xxhdpi-->
+        <screen
+            android:screenDensity="480"
+            android:screenSize="normal"/>
+        <!--nexus 6-->
+        <screen
+            android:screenDensity="560"
+            android:screenSize="normal"/>
+        <!--xxxhdpi-->
+        <screen
+            android:screenDensity="640"
+            android:screenSize="normal"/>
+    </compatible-screens>
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <!-- Optional permission for reliable local dispatching on non-Google Play devices -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Hockey stuff starts here -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Hockey stuff ends here -->
+    <application
+        android:name=".MovieDB"
+        android:allowBackup="true"
+        android:icon="@drawable/moviedb_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBMS33WeXMtDtrxH-VhF8ABU5UOwlJfhoQ"/>
+        <!--  android:configChanges="orientation|screenSize" disables restarting activities,
+              so if we change orientation there won't be new call to the server -->
+        <!-- Add the following meta-data for devices running Google Play service. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- Optionally, register AnalyticsReceiver and AnalyticsService to support background
+             dispatching on non-Google Play devices -->
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Optionally, register CampaignTrackingReceiver and CampaignTrackingService to enable
+             installation campaign reporting -->
+        <receiver
+            android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
+        <meta-data
+            android:name="com.google.android.gms.analytics.globalConfigResource"
+            android:resource="@xml/global_tracker" />
+
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <!-- Searchable config -->
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Hockey stuff starts here -->
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        <!-- Hockey stuff ends here -->
+        <activity
+            android:name = ".controller.YoutubeActivity"
+            android:configChanges = "keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name = ".controller.MapSearchActivity"
+            android:theme= "@android:style/Theme.DeviceDefault.Light.DarkActionBar"
+            android:label= "Search"
+            android:parentActivityName=".MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".loginregistration.ProfileSettings"
+            android:theme= "@style/AppTheme.NoActionBar"
+            android:label= "Profile Settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".controller.ActivityStallDetails"
+            android:theme= "@style/AppTheme.NoActionBar"
+            android:label= "Stall Details"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".loginregistration.LoginActivity" android:theme="@style/AppTheme.Dark" />
+        <activity android:name=".loginregistration.SignupActivity" android:theme="@style/AppTheme.Dark" />
+        <service android:name=".services.SpaxService"/>
+    </application>
+
+</manifest>
