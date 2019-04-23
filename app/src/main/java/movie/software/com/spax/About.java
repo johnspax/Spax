@@ -65,7 +65,7 @@ public class About extends Fragment implements View.OnClickListener {
         if (v.getId() == R.id.aboutSupportMail) {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("message/rfc822");
-            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"info@spaxsoftwareinc.ke"});
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"info@spaxsoftware.com"});
             intent.putExtra(Intent.EXTRA_SUBJECT, res.getString(R.string.MailSubject));
             intent.putExtra(Intent.EXTRA_TEXT, res.getString(R.string.MailDesc));
             startActivity(Intent.createChooser(intent, res.getString(R.string.MailSend)));

@@ -1,13 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    signingConfigs {
+        release {
+            storeFile file('C:\\Android\\AndroidStudioProjects\\Spax\\AppStoreKey\\spax.jks')
+            storePassword 'spaxsoftware'
+            keyAlias = 'SpaxKey'
+            keyPassword 'spaxsoftwarekey'
+        }
+    }
+    compileSdkVersion 'android-Q'
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "movie.software.com.spax"
-        minSdkVersion 17
-        targetSdkVersion 27
-        versionCode 17
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 18
         versionName "1.0"
         multiDexEnabled = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
