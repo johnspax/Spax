@@ -126,7 +126,7 @@ public class OrderListHistory extends Fragment {
         progressDialog.setCanceledOnTouchOutside(false);
 
         try {
-            new PrefetchOrderList().execute();
+            new PrefetchOrderList().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         } catch (Exception e) {
             e.printStackTrace();
         }

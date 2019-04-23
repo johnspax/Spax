@@ -119,7 +119,7 @@ public class MyOrdersFragment extends Fragment {
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
 
-        new PrefetchData().execute();
+        new PrefetchData().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

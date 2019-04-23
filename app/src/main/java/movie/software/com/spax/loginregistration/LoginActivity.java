@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validate())
-                    new processLogin().execute();
+                    new processLogin().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
                 else
                     showToastFromBackground("Enter valid details!");
             }

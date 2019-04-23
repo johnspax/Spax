@@ -57,7 +57,7 @@ public class SpaxService extends Service {
         runnable = new Runnable() {
             public void run() {
                 //Toast.makeText(context, "SpaxAdmin Service is still running", Toast.LENGTH_LONG).show();
-                new PrefetchData().execute();
+                new PrefetchData().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
                 handler.postDelayed(runnable, 600000);//10 Minutes
             }
         };
@@ -113,12 +113,16 @@ public class SpaxService extends Service {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            // before making http calls
-            //Log.e("JSON", "Pre execute");
-            //This part ensures that background task is running even when screen is turned off
-            PowerManager mgr = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-            wakeLock = mgr.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyWakeLock");
-            wakeLock.acquire();
+            try {
+                // before making http calls
+                //Log.e("JSON", "Pre execute");
+                //This part ensures that background task is running even when screen is turned off
+                PowerManager mgr = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+                wakeLock = mgr.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyWakeLock");
+                wakeLock.acquire();
+            }catch(Exception e){
+
+            }
         }
 
         @Override

@@ -311,7 +311,7 @@ public class ProfileSettings extends AppCompatActivity {
                             filePath = file;
 
                             // uploading the file to server
-                            new UploadFileToServer().execute();
+                            new UploadFileToServer().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
                         } catch (Exception e) {
                             e.printStackTrace();

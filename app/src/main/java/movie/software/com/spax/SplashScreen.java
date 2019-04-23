@@ -38,7 +38,7 @@ public class SplashScreen extends Activity {
          * Showing splashscreen while making network calls to download necessary
 		 * data before launching the app Will use AsyncTask to make http call
 		 */
-        new PrefetchData().execute();
+        new PrefetchData().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     /*

@@ -996,7 +996,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 //mMap.setOnInfoWindowClickListener(this);
                 mMap.setInfoWindowAdapter(new MainActivity.CustomInfoWindowAdapter());
                 //setupMapMarkers();
-                new FetchMarkers().execute("");
+                new FetchMarkers().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }
 
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);

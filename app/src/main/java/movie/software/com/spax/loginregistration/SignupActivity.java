@@ -67,7 +67,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validate())
-                    new processSignup().execute();
+                    new processSignup().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
                 else
                     showToastFromBackground("Please review input details!");
             }

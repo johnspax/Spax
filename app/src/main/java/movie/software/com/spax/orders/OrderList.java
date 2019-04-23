@@ -136,7 +136,7 @@ public class OrderList extends Fragment implements AdapterView.OnItemClickListen
         progressDialog.setCanceledOnTouchOutside(false);
 
         try {
-            new PrefetchOrderList().execute();
+            new PrefetchOrderList().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         } catch (Exception e) {
             e.printStackTrace();
         }
