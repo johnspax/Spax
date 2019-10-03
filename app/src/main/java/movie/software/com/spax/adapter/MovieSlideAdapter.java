@@ -21,14 +21,16 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
+import androidx.legacy.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+
 import android.view.ViewGroup;
 
 import movie.software.com.spax.R;
 import movie.software.com.spax.controller.MovieList;
 
 /**
- * The {@link android.support.v4.view.PagerAdapter} used to display pages in this sample.
+ * The {@link PagerAdapter} used to display pages in this sample.
  * The individual pages are simple and just display two lines of text. The important section of
  * this class is the {@link #getPageTitle(int)} method which controls what is displayed in the
  * {@link movie.software.com.spax.view.SlidingTabLayout}.

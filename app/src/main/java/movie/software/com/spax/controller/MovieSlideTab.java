@@ -18,8 +18,8 @@ package movie.software.com.spax.controller;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,20 +36,20 @@ import movie.software.com.spax.view.SlidingTabLayout;
 
 /**
  * A basic sample which shows how to use {@link movie.software.com.spax.view.SlidingTabLayout}
- * to display a custom {@link android.support.v4.view.ViewPager} title strip which gives continuous feedback to the user
+ * to display a custom {@link ViewPager} title strip which gives continuous feedback to the user
  * when scrolling.
  * This class configures the ViewPager in the Movies and has some custom methods for the sliding toolbar
  */
 public class MovieSlideTab extends Fragment implements ObservableScrollViewCallbacks {
 
     /**
-     * A custom {@link android.support.v4.view.ViewPager} title strip which looks much like Tabs present in Android v4.0 and
+     * A custom {@link ViewPager} title strip which looks much like Tabs present in Android v4.0 and
      * above, but is designed to give continuous feedback to the user when scrolling.
      */
     private SlidingTabLayout mSlidingTabLayout;
 
     /**
-     * A {@link android.support.v4.view.ViewPager} which will be used in conjunction with the {@link SlidingTabLayout} above.
+     * A {@link ViewPager} which will be used in conjunction with the {@link SlidingTabLayout} above.
      */
     private ViewPager mViewPager;
     private MovieSlideAdapter adapter;

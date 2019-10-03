@@ -22,7 +22,7 @@
             android:src="@drawable/moviedb_about" />
 
         <!-- username Label -->
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -36,7 +36,7 @@
                 android:inputType="textPostalAddress"
                 android:imeOptions="actionNext"
                 android:visibility="gone"/>
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -45,7 +45,7 @@
             android:layout_below="@+id/editText2"
             android:orientation="horizontal">
             <!-- Name Label -->
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -59,9 +59,9 @@
                     android:hint="First Name"
                     android:inputType="textCapWords"
                     android:imeOptions="actionNext"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -75,12 +75,12 @@
                     android:hint="Last Name"
                     android:inputType="textCapWords"
                     android:imeOptions="actionNext"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
 
         <!--  Email Label -->
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -93,11 +93,11 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:imeOptions="actionNext"/>
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <!-- mobile number -->
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -110,10 +110,10 @@
                 android:hint="Mobile Number"
                 android:inputType="number"
                 android:imeOptions="actionNext"/>
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password Label -->
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -127,10 +127,10 @@
                 android:maxLength="10"
                 android:inputType="textPassword"
                 android:imeOptions="actionNext"/>
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password Re-enter Label -->
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -144,10 +144,10 @@
                 android:maxLength="10"
                 android:inputType="textPassword"
                 android:imeOptions="actionDone"/>
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Signup Button -->
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

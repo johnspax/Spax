@@ -6,6 +6,7 @@ package movie.software.com.spax.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -24,7 +25,7 @@ import movie.software.com.spax.R;
 
 public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
-    private static final String API_KEY = "AIzaSyDe4LYliUr_onWS3JiKD4CmlR_6HWsSxCo";
+    private static final String API_KEY = "QUl6YVN5RGU0TFlsaVVyX29uV1MzSmlLRDRDbWxSXzZIV3NTeENv";
     private static final String VIDEO_ID = "7bDLIV96LD4";
     private YouTubePlayerView videoPlayer;
     public String YoutubeURL = "", YoutubID = "";
@@ -33,13 +34,21 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.youtubeplayer);
+        try {
+            Intent intent = getIntent();
+            YoutubeURL = intent.getExtras().getString("YoutubeURL");
+            YoutubID = YoutubeID(YoutubeURL);
 
-        Intent intent = getIntent();
-        YoutubeURL = intent.getExtras().getString("YoutubeURL");
-        YoutubID = YoutubeID(YoutubeURL);
+            //decode youtube key
+            byte[] data = Base64.decode(API_KEY, Base64.DEFAULT);
+            String yk = new String(data, "UTF-8");
 
-        videoPlayer = (YouTubePlayerView)findViewById(R.id.youtube_player);
-        videoPlayer.initialize(API_KEY, this);
+            videoPlayer = findViewById(R.id.youtube_player);
+            videoPlayer.initialize(yk, this);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -86,7 +95,7 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
         Pattern compiledPattern = Pattern.compile(pattern);
         Matcher matcher = compiledPattern.matcher(YouRL);
 
-        if(matcher.find())
+        if (matcher.find())
             YouID = matcher.group();
         return YouID;
     }

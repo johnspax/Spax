@@ -20,7 +20,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.support.wearable.view.CircledImageView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;

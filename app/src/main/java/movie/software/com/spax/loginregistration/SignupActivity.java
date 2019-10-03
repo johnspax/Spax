@@ -1,14 +1,13 @@
 package movie.software.com.spax.loginregistration;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,8 +20,6 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import movie.software.com.spax.MainActivity;
 import movie.software.com.spax.R;
 import movie.software.com.spax.custom.HttpPostClass;
@@ -35,30 +32,30 @@ public class SignupActivity extends AppCompatActivity {
 
     private String fname,lname,username,email,mobile,password,reEnterPassword,deviceid,strResult;
 
-    @Bind(R.id.input_fname)
     EditText _fnameText;
-    @Bind(R.id.input_lname)
     EditText _lnameText;
-    @Bind(R.id.input_username)
     EditText _username;
-    @Bind(R.id.input_email)
     EditText _emailText;
-    @Bind(R.id.input_mobile)
     EditText _mobileText;
-    @Bind(R.id.input_password)
     EditText _passwordText;
-    @Bind(R.id.input_reEnterPassword)
     EditText _reEnterPasswordText;
-    @Bind(R.id.btn_signup)
     Button _signupButton;
-    @Bind(R.id.link_login)
     TextView _loginLink;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        ButterKnife.bind(this);
+
+        _fnameText = findViewById(R.id.input_fname);
+        _lnameText = findViewById(R.id.input_lname);
+        _username = findViewById(R.id.input_username);
+        _emailText = findViewById(R.id.input_email);
+        _mobileText = findViewById(R.id.input_mobile);
+        _passwordText = findViewById(R.id.input_password);
+        _reEnterPasswordText = findViewById(R.id.input_reEnterPassword);
+        _signupButton  = findViewById(R.id.btn_signup);
+        _loginLink = findViewById(R.id.link_login);
 
         Intent intent = getIntent();
         deviceid = intent.getStringExtra("DeviceIMEI");
@@ -103,18 +100,20 @@ public class SignupActivity extends AppCompatActivity {
             progressDialog.show();
             progressDialog.setCancelable(false);
             progressDialog.setCanceledOnTouchOutside(false);
+
+            fname = _fnameText.getText().toString();
+            lname = _lnameText.getText().toString();
+            username = _username.getText().toString();
+            email = _emailText.getText().toString();
+            mobile = _mobileText.getText().toString();
+            password = _passwordText.getText().toString();
+            reEnterPassword = _reEnterPasswordText.getText().toString();
         }
 
         @Override
         protected Void doInBackground(Void... arg0) {
             try {
-                fname = _fnameText.getText().toString();
-                lname = _lnameText.getText().toString();
-                username = _username.getText().toString();
-                email = _emailText.getText().toString();
-                mobile = _mobileText.getText().toString();
-                password = _passwordText.getText().toString();
-                reEnterPassword = _reEnterPasswordText.getText().toString();
+
                 // On complete call either onLoginSuccess or onLoginFailed
                 String[] UserInfo;
                 List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>();

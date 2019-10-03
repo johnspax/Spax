@@ -10,11 +10,10 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,8 +26,6 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import movie.software.com.spax.MainActivity;
 import movie.software.com.spax.R;
 import movie.software.com.spax.custom.HttpPostClass;
@@ -39,21 +36,23 @@ public class LoginActivity extends AppCompatActivity {
     private static String deviceid, strResult;
     private Boolean isLoginFailed = false;
     private static ProgressDialog progressDialog;
+    String email = "";
+    String password = "";
 
-    @Bind(R.id.input_email)
     EditText _emailText;
-    @Bind(R.id.input_password)
     EditText _passwordText;
-    @Bind(R.id.btn_login)
     Button _loginButton;
-    @Bind(R.id.link_signup)
     TextView _signupLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+
+        _emailText = findViewById(R.id.input_email);
+        _passwordText = findViewById(R.id.input_password);
+        _loginButton = findViewById(R.id.btn_login);
+        _signupLink = findViewById(R.id.link_signup);
 
         /* All version with SDK_INT < 22 grant permissions on install time. */
         //this is where we check for permissions for android 6 and above
@@ -173,13 +172,15 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog.show();
             progressDialog.setCancelable(false);
             progressDialog.setCanceledOnTouchOutside(false);
+
+            email = _emailText.getText().toString();
+            password = _passwordText.getText().toString();
         }
 
         @Override
         protected Void doInBackground(Void... arg0) {
             try {
-                final String email = _emailText.getText().toString();
-                final String password = _passwordText.getText().toString();
+
                 // On complete call either onLoginSuccess or onLoginFailed
                 List<NameValuePair> nameValuePair = new ArrayList<>();
                 nameValuePair.add(new BasicNameValuePair("Request", "1"));

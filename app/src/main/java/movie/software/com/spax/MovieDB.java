@@ -17,6 +17,7 @@
 package movie.software.com.spax;
 
 import android.app.Application;
+import android.util.Base64;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
@@ -36,14 +37,22 @@ public class MovieDB extends Application {
     public static final String trailerImageUrl = "http://i1.ytimg.com/vi/";// used to load trailer images
     public static final String youtube = "https://www.youtube.com/watch?v=";// used to load trailer videos
     public static final String appId = "95a38b92c5cb4bbfd779c0e2fcaef5a6";
-    public static final String analyticsKey = "AIzaSyCnHqT3HPvFv_aoM9Jtx0YmVbroFx0rHxA";//Your analytics API Key
-    public static final String YOUTUBE_API_KEY = "AIzaSyASoQ4k3xxoolFTW-2BsDxiePhVQugYyUw";//Your youtube API Key
+    public static final String analyticsKey = "QUl6YVN5Q25IcVQzSFB2RnZfYW9NOUp0eDBZbVZicm9GeDBySHhB";//Your encrypted analytics API Key
 
     @Override
     public void onCreate() {
         super.onCreate();
-        analytics = GoogleAnalytics.getInstance(this);
-        tracker = analytics.newTracker(analyticsKey);
+        try {
+            analytics = GoogleAnalytics.getInstance(this);
+
+            //decode analytics key
+            byte[] data = Base64.decode(analyticsKey, Base64.DEFAULT);
+            String ak = new String(data, "UTF-8");
+
+            tracker = analytics.newTracker(ak);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public Tracker getTracker() {

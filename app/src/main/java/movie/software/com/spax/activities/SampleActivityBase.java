@@ -17,7 +17,7 @@
 package movie.software.com.spax.activities;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import movie.software.com.spax.logger.Log;
 import movie.software.com.spax.logger.LogWrapper;

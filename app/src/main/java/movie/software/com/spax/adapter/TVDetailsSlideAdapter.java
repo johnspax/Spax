@@ -20,7 +20,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Resources;
 import android.os.Parcelable;
-import android.support.v13.app.FragmentStatePagerAdapter;
+import androidx.legacy.app.FragmentStatePagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
